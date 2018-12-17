@@ -36,6 +36,7 @@
 		BF5F92FC21C7F4F500B6F632 /* AddToDoItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5F92FB21C7F4F500B6F632 /* AddToDoItemViewModel.swift */; };
 		BF5F92FE21C7F50600B6F632 /* AddToDoItemViewModelImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5F92FD21C7F50600B6F632 /* AddToDoItemViewModelImpl.swift */; };
 		BF5F930021C7F86F00B6F632 /* AddToDoItemFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5F92FF21C7F86F00B6F632 /* AddToDoItemFactory.swift */; };
+		BF5F930621C8393700B6F632 /* SimplePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5F930521C8393700B6F632 /* SimplePickerView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,6 +83,7 @@
 		BF5F92FB21C7F4F500B6F632 /* AddToDoItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddToDoItemViewModel.swift; sourceTree = "<group>"; };
 		BF5F92FD21C7F50600B6F632 /* AddToDoItemViewModelImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddToDoItemViewModelImpl.swift; sourceTree = "<group>"; };
 		BF5F92FF21C7F86F00B6F632 /* AddToDoItemFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddToDoItemFactory.swift; sourceTree = "<group>"; };
+		BF5F930521C8393700B6F632 /* SimplePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimplePickerView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -197,6 +199,7 @@
 			isa = PBXGroup;
 			children = (
 				BF4F78D021C439BE000B10C2 /* Result.swift */,
+				BF5F930521C8393700B6F632 /* SimplePickerView.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -380,6 +383,7 @@
 				BF4F789021C3DE0D000B10C2 /* AppDelegate.swift in Sources */,
 				BF4F78B721C3E070000B10C2 /* CoordinatorFactory.swift in Sources */,
 				BF4F78D721C440C7000B10C2 /* ToDoItemRepositoryFactory.swift in Sources */,
+				BF5F930621C8393700B6F632 /* SimplePickerView.swift in Sources */,
 				BF4F78C321C3E13E000B10C2 /* ToDoListViewModelImpl.swift in Sources */,
 				BF4F78DB21C4466A000B10C2 /* ToDoListItemViewModel.swift in Sources */,
 				BF4F78C121C3E0EF000B10C2 /* ToDoListRouter.swift in Sources */,
