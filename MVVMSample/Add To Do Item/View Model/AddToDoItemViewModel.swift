@@ -14,11 +14,18 @@ import Foundation
     var nameDidChange: ((AddToDoItemViewModel) -> Void)? { get set }
     
     var dueDate: Date? { get set }
-    var dueDateString: Date? { get }
+    var dueDateString: String? { get }
     var dueDateStringDidChange: ((AddToDoItemViewModel) -> Void)? { get set }
+    var minimumDueDate: Date { get }
+    
+    var priorityString: String { get }
+    var priorityStringDidChange: ((AddToDoItemViewModel) -> Void)? { get set }
+    var orderedPriorityStrings: [String] { get }
     
     var isFormValid: Bool { get }
     var isFormValidDidChange: ((AddToDoItemViewModel) -> Void)? { get set }
+    
+    func selectPriority(at index: Int)
     
     func cancel()
 }

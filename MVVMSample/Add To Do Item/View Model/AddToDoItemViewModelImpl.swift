@@ -12,6 +12,8 @@ final class AddToDoItemViewModelImpl: AddToDoItemViewModel {
     
     weak var router: AddToDoItemRouter?
     
+    private var newToDoItem = NewToDoItem()
+    
     var name: String = "" {
         didSet {
             nameDidChange?(self)
@@ -27,13 +29,18 @@ final class AddToDoItemViewModelImpl: AddToDoItemViewModel {
         }
     }
     
-    var dueDateString: Date? {
+    var dueDateString: String? {
         didSet {
             dueDateStringDidChange?(self)
         }
     }
     
     var dueDateStringDidChange: ((AddToDoItemViewModel) -> Void)?
+    
+    var minimumDueDate: Date {
+        
+        return Date()
+    }
     
     private(set) var isFormValid = false {
         didSet {
@@ -42,6 +49,38 @@ final class AddToDoItemViewModelImpl: AddToDoItemViewModel {
     }
     
     var isFormValidDidChange: ((AddToDoItemViewModel) -> Void)?
+    
+    var priorityString: String = NSLocalizedString("unwichtig", comment: "") {
+        didSet {
+            priorityStringDidChange?(self)
+        }
+    }
+    
+    var priorityStringDidChange: ((AddToDoItemViewModel) -> Void)?
+    
+    private lazy var orderedPriorities: [ToDoItemPriority] = {
+        
+        return [ .none, .low, .medium, .high ]
+    }()
+    
+    lazy var orderedPriorityStrings: [String] = {
+        
+        return orderedPriorities.map(priorityString)
+    }()
+    
+    private func priorityString(for priority: ToDoItemPriority) -> String {
+        
+        switch priority {
+        case .none:
+            return NSLocalizedString("unwichtig", comment: "")
+        case .low:
+            return NSLocalizedString("nicht so wichtig", comment: "")
+        case .medium:
+            return NSLocalizedString("schon recht wichtig", comment: "")
+        case .high:
+            return NSLocalizedString("ziemlich wichtig", comment: "")
+        }
+    }
     
     init(router: AddToDoItemRouter) {
         
@@ -56,6 +95,21 @@ final class AddToDoItemViewModelImpl: AddToDoItemViewModel {
     private func updateFormValidation() {
         
         // TODO: Validate form and update `isFormValid` property
+    }
+    
+    func selectPriority(at index: Int) {
+        
+        guard case (0..<orderedPriorities.count) = index else {
+            assertionFailure("Index out of bounds")
+            return
+        }
+        
+        // Update the view
+        let priority = orderedPriorities[index]
+        priorityString = priorityString(for: priority)
+        
+        // Update the model
+        newToDoItem.priority = priority
     }
     
     func cancel() {
