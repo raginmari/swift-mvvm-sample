@@ -123,14 +123,14 @@
 		BF4F788E21C3DE0D000B10C2 /* MVVMSample */ = {
 			isa = PBXGroup;
 			children = (
+				BF4F78E821C7F3E2000B10C2 /* Add To Do Item */,
 				BF4F788F21C3DE0D000B10C2 /* AppDelegate.swift */,
 				BF4F78AF21C3DE3E000B10C2 /* Bootstrap */,
 				BF4F78CF21C439B8000B10C2 /* Common */,
 				BF4F78B321C3DFFC000B10C2 /* Coordinator */,
-				BF4F78C821C43868000B10C2 /* Repository */,
 				BF4F78B021C3DE46000B10C2 /* Resources */,
+				BF5F930221C8015200B6F632 /* To Do Item */,
 				BF4F78B121C3DFE0000B10C2 /* To Do List */,
-				BF4F78E821C7F3E2000B10C2 /* To Do List - Add Item */,
 			);
 			path = MVVMSample;
 			sourceTree = "<group>";
@@ -185,10 +185,7 @@
 		BF4F78C821C43868000B10C2 /* Repository */ = {
 			isa = PBXGroup;
 			children = (
-				BF4F78E321C7EEA5000B10C2 /* Data Access */,
-				BF4F78CB21C4388B000B10C2 /* ToDoItem.swift */,
 				BF4F78E421C7EEB7000B10C2 /* ToDoItemDataAccess.swift */,
-				BF4F78CD21C43899000B10C2 /* ToDoItemPriority.swift */,
 				BF4F78C921C4387C000B10C2 /* ToDoItemRepository.swift */,
 				BF4F78D621C440C7000B10C2 /* ToDoItemRepositoryFactory.swift */,
 				BF4F78D221C43F7E000B10C2 /* ToDoItemRepositoryImpl.swift */,
@@ -224,15 +221,15 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		BF4F78E321C7EEA5000B10C2 /* Data Access */ = {
+		BF4F78E321C7EEA5000B10C2 /* DAO */ = {
 			isa = PBXGroup;
 			children = (
 				BF4F78E621C7EF7E000B10C2 /* UserDefaultsToDoItemDAO.swift */,
 			);
-			path = "Data Access";
+			path = DAO;
 			sourceTree = "<group>";
 		};
-		BF4F78E821C7F3E2000B10C2 /* To Do List - Add Item */ = {
+		BF4F78E821C7F3E2000B10C2 /* Add To Do Item */ = {
 			isa = PBXGroup;
 			children = (
 				BF5F92FF21C7F86F00B6F632 /* AddToDoItemFactory.swift */,
@@ -240,7 +237,7 @@
 				BF4F78E921C7F3FB000B10C2 /* View */,
 				BF4F78EA21C7F400000B10C2 /* View Model */,
 			);
-			path = "To Do List - Add Item";
+			path = "Add To Do Item";
 			sourceTree = "<group>";
 		};
 		BF4F78E921C7F3FB000B10C2 /* View */ = {
@@ -259,6 +256,17 @@
 				BF5F92FD21C7F50600B6F632 /* AddToDoItemViewModelImpl.swift */,
 			);
 			path = "View Model";
+			sourceTree = "<group>";
+		};
+		BF5F930221C8015200B6F632 /* To Do Item */ = {
+			isa = PBXGroup;
+			children = (
+				BF4F78E321C7EEA5000B10C2 /* DAO */,
+				BF4F78C821C43868000B10C2 /* Repository */,
+				BF4F78CB21C4388B000B10C2 /* ToDoItem.swift */,
+				BF4F78CD21C43899000B10C2 /* ToDoItemPriority.swift */,
+			);
+			path = "To Do Item";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
