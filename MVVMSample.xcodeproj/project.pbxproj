@@ -30,6 +30,12 @@
 		BF4F78E221C59EF3000B10C2 /* ToDoListItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4F78E121C59EF3000B10C2 /* ToDoListItemCell.swift */; };
 		BF4F78E521C7EEB7000B10C2 /* ToDoItemDataAccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4F78E421C7EEB7000B10C2 /* ToDoItemDataAccess.swift */; };
 		BF4F78E721C7EF7E000B10C2 /* UserDefaultsToDoItemDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4F78E621C7EF7E000B10C2 /* UserDefaultsToDoItemDAO.swift */; };
+		BF4F78EC21C7F430000B10C2 /* AddToDoItemRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4F78EB21C7F430000B10C2 /* AddToDoItemRouter.swift */; };
+		BF4F78EE21C7F46B000B10C2 /* AddToDoItemView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF4F78ED21C7F46B000B10C2 /* AddToDoItemView.storyboard */; };
+		BF5F92FA21C7F4B900B6F632 /* AddToDoItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5F92F921C7F4B900B6F632 /* AddToDoItemViewController.swift */; };
+		BF5F92FC21C7F4F500B6F632 /* AddToDoItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5F92FB21C7F4F500B6F632 /* AddToDoItemViewModel.swift */; };
+		BF5F92FE21C7F50600B6F632 /* AddToDoItemViewModelImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5F92FD21C7F50600B6F632 /* AddToDoItemViewModelImpl.swift */; };
+		BF5F930021C7F86F00B6F632 /* AddToDoItemFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5F92FF21C7F86F00B6F632 /* AddToDoItemFactory.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +76,12 @@
 		BF4F78E121C59EF3000B10C2 /* ToDoListItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoListItemCell.swift; sourceTree = "<group>"; };
 		BF4F78E421C7EEB7000B10C2 /* ToDoItemDataAccess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoItemDataAccess.swift; sourceTree = "<group>"; };
 		BF4F78E621C7EF7E000B10C2 /* UserDefaultsToDoItemDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsToDoItemDAO.swift; sourceTree = "<group>"; };
+		BF4F78EB21C7F430000B10C2 /* AddToDoItemRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddToDoItemRouter.swift; sourceTree = "<group>"; };
+		BF4F78ED21C7F46B000B10C2 /* AddToDoItemView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddToDoItemView.storyboard; sourceTree = "<group>"; };
+		BF5F92F921C7F4B900B6F632 /* AddToDoItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddToDoItemViewController.swift; sourceTree = "<group>"; };
+		BF5F92FB21C7F4F500B6F632 /* AddToDoItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddToDoItemViewModel.swift; sourceTree = "<group>"; };
+		BF5F92FD21C7F50600B6F632 /* AddToDoItemViewModelImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddToDoItemViewModelImpl.swift; sourceTree = "<group>"; };
+		BF5F92FF21C7F86F00B6F632 /* AddToDoItemFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddToDoItemFactory.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +130,7 @@
 				BF4F78C821C43868000B10C2 /* Repository */,
 				BF4F78B021C3DE46000B10C2 /* Resources */,
 				BF4F78B121C3DFE0000B10C2 /* To Do List */,
+				BF4F78E821C7F3E2000B10C2 /* To Do List - Add Item */,
 			);
 			path = MVVMSample;
 			sourceTree = "<group>";
@@ -219,6 +232,35 @@
 			path = "Data Access";
 			sourceTree = "<group>";
 		};
+		BF4F78E821C7F3E2000B10C2 /* To Do List - Add Item */ = {
+			isa = PBXGroup;
+			children = (
+				BF5F92FF21C7F86F00B6F632 /* AddToDoItemFactory.swift */,
+				BF4F78EB21C7F430000B10C2 /* AddToDoItemRouter.swift */,
+				BF4F78E921C7F3FB000B10C2 /* View */,
+				BF4F78EA21C7F400000B10C2 /* View Model */,
+			);
+			path = "To Do List - Add Item";
+			sourceTree = "<group>";
+		};
+		BF4F78E921C7F3FB000B10C2 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				BF4F78ED21C7F46B000B10C2 /* AddToDoItemView.storyboard */,
+				BF5F92F921C7F4B900B6F632 /* AddToDoItemViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		BF4F78EA21C7F400000B10C2 /* View Model */ = {
+			isa = PBXGroup;
+			children = (
+				BF5F92FB21C7F4F500B6F632 /* AddToDoItemViewModel.swift */,
+				BF5F92FD21C7F50600B6F632 /* AddToDoItemViewModelImpl.swift */,
+			);
+			path = "View Model";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -302,6 +344,7 @@
 			files = (
 				BF4F789A21C3DE10000B10C2 /* LaunchScreen.storyboard in Resources */,
 				BF4F789721C3DE10000B10C2 /* Assets.xcassets in Resources */,
+				BF4F78EE21C7F46B000B10C2 /* AddToDoItemView.storyboard in Resources */,
 				BF4F78BD21C3E0CE000B10C2 /* ToDoListView.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -333,12 +376,17 @@
 				BF4F78DB21C4466A000B10C2 /* ToDoListItemViewModel.swift in Sources */,
 				BF4F78C121C3E0EF000B10C2 /* ToDoListRouter.swift in Sources */,
 				BF4F78CC21C4388B000B10C2 /* ToDoItem.swift in Sources */,
+				BF5F92FA21C7F4B900B6F632 /* AddToDoItemViewController.swift in Sources */,
+				BF4F78EC21C7F430000B10C2 /* AddToDoItemRouter.swift in Sources */,
+				BF5F92FE21C7F50600B6F632 /* AddToDoItemViewModelImpl.swift in Sources */,
 				BF4F78D321C43F7E000B10C2 /* ToDoItemRepositoryImpl.swift in Sources */,
+				BF5F930021C7F86F00B6F632 /* AddToDoItemFactory.swift in Sources */,
 				BF4F78BB21C3E0B9000B10C2 /* ToDoListViewController.swift in Sources */,
 				BF4F78E721C7EF7E000B10C2 /* UserDefaultsToDoItemDAO.swift in Sources */,
 				BF4F78CA21C4387C000B10C2 /* ToDoItemRepository.swift in Sources */,
 				BF4F78B821C3E070000B10C2 /* iPhoneAppCoordinator.swift in Sources */,
 				BF4F78E221C59EF3000B10C2 /* ToDoListItemCell.swift in Sources */,
+				BF5F92FC21C7F4F500B6F632 /* AddToDoItemViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

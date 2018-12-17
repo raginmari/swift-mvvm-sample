@@ -14,6 +14,8 @@ final class iPhoneAppCoordinator: Coordinator {
     
     private weak var rootViewController: UIViewController?
     
+    private weak var currentAddToDoItemViewController: UIViewController?
+    
     init(window: UIWindow) {
         
         self.window = window
@@ -34,6 +36,23 @@ extension iPhoneAppCoordinator: ToDoListRouter {
     
     func addToDoItem() {
         
-        print("Add new item")
+        let viewController = AddToDoItemFactory.makeAddToDoItemView(router: self)
+        let navigationController = UINavigationController(rootViewController: viewController)
+        rootViewController?.present(navigationController, animated: true)
+        
+        currentAddToDoItemViewController = navigationController
+    }
+}
+
+extension iPhoneAppCoordinator: AddToDoItemRouter {
+    
+    func cancel() {
+        
+        currentAddToDoItemViewController?.dismiss(animated: true)
+    }
+    
+    func finish() {
+        
+        currentAddToDoItemViewController?.dismiss(animated: true)
     }
 }
