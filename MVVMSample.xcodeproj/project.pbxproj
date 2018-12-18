@@ -44,6 +44,8 @@
 		BF5F932B21C9864500B6F632 /* ReactiveKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF5F932821C9864400B6F632 /* ReactiveKit.framework */; };
 		BF5F932C21C9864500B6F632 /* Bond.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF5F932921C9864500B6F632 /* Bond.framework */; };
 		BF5F932D21C9864500B6F632 /* Differ.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF5F932A21C9864500B6F632 /* Differ.framework */; };
+		BF5F933021C98CF400B6F632 /* UIImage+Extras.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5F932F21C98CF400B6F632 /* UIImage+Extras.swift */; };
+		BF5F933221C99B9800B6F632 /* UIColor+Extras.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5F933121C99B9800B6F632 /* UIColor+Extras.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -98,6 +100,8 @@
 		BF5F932821C9864400B6F632 /* ReactiveKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReactiveKit.framework; path = Carthage/Build/iOS/ReactiveKit.framework; sourceTree = "<group>"; };
 		BF5F932921C9864500B6F632 /* Bond.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bond.framework; path = Carthage/Build/iOS/Bond.framework; sourceTree = "<group>"; };
 		BF5F932A21C9864500B6F632 /* Differ.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Differ.framework; path = Carthage/Build/iOS/Differ.framework; sourceTree = "<group>"; };
+		BF5F932F21C98CF400B6F632 /* UIImage+Extras.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Extras.swift"; sourceTree = "<group>"; };
+		BF5F933121C99B9800B6F632 /* UIColor+Extras.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extras.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -219,6 +223,8 @@
 			children = (
 				BF4F78D021C439BE000B10C2 /* Result.swift */,
 				BF5F930521C8393700B6F632 /* SimplePickerView.swift */,
+				BF5F933121C99B9800B6F632 /* UIColor+Extras.swift */,
+				BF5F932F21C98CF400B6F632 /* UIImage+Extras.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -445,6 +451,7 @@
 				BF4F78CE21C43899000B10C2 /* ToDoItemPriority.swift in Sources */,
 				BF4F78D121C439BE000B10C2 /* Result.swift in Sources */,
 				BF4F78E521C7EEB7000B10C2 /* ToDoItemDataAccess.swift in Sources */,
+				BF5F933021C98CF400B6F632 /* UIImage+Extras.swift in Sources */,
 				BF4F78BF21C3E0DE000B10C2 /* ToDoListViewModel.swift in Sources */,
 				BFA9534D21E393E300EB8C16 /* AddToDoItemCoordinatorFactory.swift in Sources */,
 				BF4F78C521C3E17C000B10C2 /* ToDoListFactory.swift in Sources */,
@@ -460,6 +467,7 @@
 				BF4F78CC21C4388B000B10C2 /* ToDoItem.swift in Sources */,
 				BF5F92FA21C7F4B900B6F632 /* AddToDoItemViewController.swift in Sources */,
 				BF4F78EC21C7F430000B10C2 /* AddToDoItemRouter.swift in Sources */,
+				BF5F933221C99B9800B6F632 /* UIColor+Extras.swift in Sources */,
 				BF5F92FE21C7F50600B6F632 /* AddToDoItemViewModelImpl.swift in Sources */,
 				BF4F78D321C43F7E000B10C2 /* ToDoItemRepositoryImpl.swift in Sources */,
 				BF5F930021C7F86F00B6F632 /* AddToDoItemFactory.swift in Sources */,
