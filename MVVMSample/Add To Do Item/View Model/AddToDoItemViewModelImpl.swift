@@ -50,6 +50,12 @@ final class AddToDoItemViewModelImpl: AddToDoItemViewModel {
     
     var isFormValidDidChange: ((AddToDoItemViewModel) -> Void)?
     
+    private var priority: ToDoItemPriority = .none {
+        didSet {
+            updatePriorityString(with: priority)
+        }
+    }
+    
     var priorityString: String = NSLocalizedString("unwichtig", comment: "") {
         didSet {
             priorityStringDidChange?(self)
@@ -93,6 +99,11 @@ final class AddToDoItemViewModelImpl: AddToDoItemViewModel {
         // TODO: Format date string
     }
     
+    private func updatePriorityString(with priority: ToDoItemPriority) {
+        
+        priorityString = priorityString(for: priority)
+    }
+    
     private func updateFormValidation() {
         
         // TODO: Validate form and update `isFormValid` property
@@ -105,9 +116,7 @@ final class AddToDoItemViewModelImpl: AddToDoItemViewModel {
             return
         }
         
-        // Update the view
-        let priority = orderedPriorities[index]
-        priorityString = priorityString(for: priority)
+        priority = orderedPriorities[index]
     }
     
     func cancel() {
