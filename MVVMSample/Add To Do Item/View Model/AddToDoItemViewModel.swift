@@ -13,7 +13,6 @@ import Foundation
     var name: String { get set }
     var nameDidChange: ((AddToDoItemViewModel) -> Void)? { get set }
     
-    var dueDate: Date? { get set }
     var dueDateString: String? { get }
     var dueDateStringDidChange: ((AddToDoItemViewModel) -> Void)? { get set }
     var minimumDueDate: Date { get }

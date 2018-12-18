@@ -22,7 +22,7 @@ final class AddToDoItemViewModelImpl: AddToDoItemViewModel {
     
     var nameDidChange: ((AddToDoItemViewModel) -> Void)?
     
-    var dueDate: Date? {
+    private var dueDate: Date? {
         didSet {
             updateDueDateString(with: dueDate)
         }
