@@ -12,7 +12,6 @@ final class AddToDoItemViewModelImpl: AddToDoItemViewModel {
     
     weak var router: AddToDoItemRouter?
     
-    private var newToDoItem = NewToDoItem()
     
     var name: String = "" {
         didSet {
@@ -107,9 +106,6 @@ final class AddToDoItemViewModelImpl: AddToDoItemViewModel {
         // Update the view
         let priority = orderedPriorities[index]
         priorityString = priorityString(for: priority)
-        
-        // Update the model
-        newToDoItem.priority = priority
     }
     
     func cancel() {

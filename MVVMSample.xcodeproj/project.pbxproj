@@ -38,7 +38,6 @@
 		BF5F930021C7F86F00B6F632 /* AddToDoItemFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5F92FF21C7F86F00B6F632 /* AddToDoItemFactory.swift */; };
 		BF5F930421C836E700B6F632 /* WidgetFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5F930321C836E700B6F632 /* WidgetFactory.swift */; };
 		BF5F930621C8393700B6F632 /* SimplePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5F930521C8393700B6F632 /* SimplePickerView.swift */; };
-		BF5F930821C8413E00B6F632 /* NewToDoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5F930721C8413E00B6F632 /* NewToDoItem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,7 +86,6 @@
 		BF5F92FF21C7F86F00B6F632 /* AddToDoItemFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddToDoItemFactory.swift; sourceTree = "<group>"; };
 		BF5F930321C836E700B6F632 /* WidgetFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetFactory.swift; sourceTree = "<group>"; };
 		BF5F930521C8393700B6F632 /* SimplePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimplePickerView.swift; sourceTree = "<group>"; };
-		BF5F930721C8413E00B6F632 /* NewToDoItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewToDoItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -262,7 +260,6 @@
 			children = (
 				BF5F92FB21C7F4F500B6F632 /* AddToDoItemViewModel.swift */,
 				BF5F92FD21C7F50600B6F632 /* AddToDoItemViewModelImpl.swift */,
-				BF5F930721C8413E00B6F632 /* NewToDoItem.swift */,
 			);
 			path = "View Model";
 			sourceTree = "<group>";
@@ -382,7 +379,6 @@
 			files = (
 				BF4F78CE21C43899000B10C2 /* ToDoItemPriority.swift in Sources */,
 				BF4F78D121C439BE000B10C2 /* Result.swift in Sources */,
-				BF5F930821C8413E00B6F632 /* NewToDoItem.swift in Sources */,
 				BF4F78E521C7EEB7000B10C2 /* ToDoItemDataAccess.swift in Sources */,
 				BF4F78BF21C3E0DE000B10C2 /* ToDoListViewModel.swift in Sources */,
 				BF4F78C521C3E17C000B10C2 /* ToDoListFactory.swift in Sources */,
