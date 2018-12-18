@@ -41,6 +41,9 @@
 		BF5F933421CA788900B6F632 /* ToDoItemDataAccessError.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5F933321CA788900B6F632 /* ToDoItemDataAccessError.swift */; };
 		BFA9534A21E3915400EB8C16 /* AddToDoItemCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA9534921E3915400EB8C16 /* AddToDoItemCoordinator.swift */; };
 		BFA9534D21E393E300EB8C16 /* AddToDoItemCoordinatorFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA9534C21E393E300EB8C16 /* AddToDoItemCoordinatorFactory.swift */; };
+		BF5F932B21C9864500B6F632 /* ReactiveKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF5F932821C9864400B6F632 /* ReactiveKit.framework */; };
+		BF5F932C21C9864500B6F632 /* Bond.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF5F932921C9864500B6F632 /* Bond.framework */; };
+		BF5F932D21C9864500B6F632 /* Differ.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF5F932A21C9864500B6F632 /* Differ.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -92,6 +95,9 @@
 		BF5F933321CA788900B6F632 /* ToDoItemDataAccessError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoItemDataAccessError.swift; sourceTree = "<group>"; };
 		BFA9534921E3915400EB8C16 /* AddToDoItemCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddToDoItemCoordinator.swift; sourceTree = "<group>"; };
 		BFA9534C21E393E300EB8C16 /* AddToDoItemCoordinatorFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddToDoItemCoordinatorFactory.swift; sourceTree = "<group>"; };
+		BF5F932821C9864400B6F632 /* ReactiveKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReactiveKit.framework; path = Carthage/Build/iOS/ReactiveKit.framework; sourceTree = "<group>"; };
+		BF5F932921C9864500B6F632 /* Bond.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bond.framework; path = Carthage/Build/iOS/Bond.framework; sourceTree = "<group>"; };
+		BF5F932A21C9864500B6F632 /* Differ.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Differ.framework; path = Carthage/Build/iOS/Differ.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +105,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BF5F932B21C9864500B6F632 /* ReactiveKit.framework in Frameworks */,
+				BF5F932C21C9864500B6F632 /* Bond.framework in Frameworks */,
+				BF5F932D21C9864500B6F632 /* Differ.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -118,6 +127,7 @@
 				BF4F788E21C3DE0D000B10C2 /* MVVMSample */,
 				BF4F78A321C3DE10000B10C2 /* MVVMSampleTests */,
 				BF4F788D21C3DE0D000B10C2 /* Products */,
+				BF5F932721C9864400B6F632 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -292,6 +302,16 @@
 			path = Coordinator;
 			sourceTree = "<group>";
 		};
+		BF5F932721C9864400B6F632 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BF5F932921C9864500B6F632 /* Bond.framework */,
+				BF5F932A21C9864500B6F632 /* Differ.framework */,
+				BF5F932821C9864400B6F632 /* ReactiveKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -302,6 +322,7 @@
 				BF4F788821C3DE0D000B10C2 /* Sources */,
 				BF4F788921C3DE0D000B10C2 /* Frameworks */,
 				BF4F788A21C3DE0D000B10C2 /* Resources */,
+				BF5F932E21C9866F00B6F632 /* Carthage Copy Frameworks */,
 			);
 			buildRules = (
 			);
@@ -388,6 +409,33 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		BF5F932E21C9866F00B6F632 /* Carthage Copy Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/Bond.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Differ.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/ReactiveKit.framework",
+			);
+			name = "Carthage Copy Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Bond.framework",
+				"$(DERIVED_FILE_DIR)/Differ.framework",
+				"$(DERIVED_FILE_DIR)/ReactiveKit.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		BF4F788821C3DE0D000B10C2 /* Sources */ = {
@@ -578,6 +626,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 986JK4PY5R;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = MVVMSample/Bootstrap/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -597,6 +649,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 986JK4PY5R;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = MVVMSample/Bootstrap/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

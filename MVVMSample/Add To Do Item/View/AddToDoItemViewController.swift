@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Bond
+import ReactiveKit
 
 private enum Strings {
     
@@ -15,6 +17,13 @@ private enum Strings {
 
 final class AddToDoItemViewController: UIViewController {
     
+    @IBOutlet private weak var saveButton: UIButton! {
+        didSet {
+            saveButton?.setBackgroundImage(UIImage.image(withColor: UIColor(hex: 0x3498db)), for: .normal)
+        }
+    }
+    
+    @IBOutlet private weak var nameTextField: UITextField!
     @IBOutlet private weak var dueDateTextField: UITextField!
     @IBOutlet private weak var priorityTextField: UITextField!
     
@@ -25,6 +34,14 @@ final class AddToDoItemViewController: UIViewController {
     }
     
     private func setUpBindings(with viewModel: AddToDoItemViewModel) {
+        
+        loadViewIfNeeded()
+        
+        // Bind view model to name text field
+        viewModel.name.bidirectionalBind(to: nameTextField.reactive.text)
+        
+        // Bind view model to save button
+        viewModel.isFormValid.bind(to: saveButton.reactive.isEnabled)
         
         viewModel.dueDateStringDidChange = { [weak self] viewModel in
             self?.dueDateTextField.text = viewModel.dueDateString
@@ -48,7 +65,11 @@ final class AddToDoItemViewController: UIViewController {
     
     private func installCancelBarButton() {
         
-        let button = makeCancelBarButton(target: viewModel, action: #selector(AddToDoItemViewModel.cancel))
+        let button = makeCancelBarButton()
+        _ = button.reactive.tap.observeNext { [weak self] in
+            self?.viewModel.cancel()
+        }
+        
         navigationItem.rightBarButtonItem = button
     }
     
@@ -84,8 +105,8 @@ final class AddToDoItemViewController: UIViewController {
         viewModel.selectPriority(at: selectedIndex)
     }
     
-    private func makeCancelBarButton(target: Any, action: Selector) -> UIBarButtonItem {
+    private func makeCancelBarButton() -> UIBarButtonItem {
         
-        return UIBarButtonItem(barButtonSystemItem: .cancel, target: target, action: action)
+        return UIBarButtonItem(barButtonSystemItem: .cancel, target: nil, action: nil)
     }
 }

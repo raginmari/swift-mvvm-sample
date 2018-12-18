@@ -7,21 +7,17 @@
 //
 
 import Foundation
+import Bond
 
 final class AddToDoItemViewModelImpl: AddToDoItemViewModel {
     
+    /// Handles the navigation events of the component.
     weak var router: AddToDoItemRouter?
     
+    /// Provides access to the to do item model.
     private let repository: ToDoItemRepository
     
-    var name: String = "" {
-        didSet {
-            nameDidChange?(self)
-            updateFormValidation()
-        }
-    }
-    
-    var nameDidChange: ((AddToDoItemViewModel) -> Void)?
+    let name = Observable<String?>("")
     
     private var dueDate: Date? {
         didSet {
@@ -42,13 +38,7 @@ final class AddToDoItemViewModelImpl: AddToDoItemViewModel {
         return Date()
     }
     
-    private(set) var isFormValid = false {
-        didSet {
-            isFormValidDidChange?(self)
-        }
-    }
-    
-    var isFormValidDidChange: ((AddToDoItemViewModel) -> Void)?
+    let isFormValid = Observable(false)
     
     private var priority: ToDoItemPriority = .none {
         didSet {
@@ -74,6 +64,21 @@ final class AddToDoItemViewModelImpl: AddToDoItemViewModel {
         return orderedPriorities.map(priorityString)
     }()
     
+    init(repository: ToDoItemRepository, router: AddToDoItemRouter) {
+        
+        self.repository = repository
+        self.router = router
+        
+        setUpBindings()
+    }
+    
+    private func setUpBindings() {
+        
+        _ = name.observeNext { [weak self] value in
+            self?.updateFormValidation()
+        }
+    }
+    
     private func priorityString(for priority: ToDoItemPriority) -> String {
         
         switch priority {
@@ -88,12 +93,6 @@ final class AddToDoItemViewModelImpl: AddToDoItemViewModel {
         }
     }
     
-    init(repository: ToDoItemRepository, router: AddToDoItemRouter) {
-        
-        self.repository = repository
-        self.router = router
-    }
-    
     private func updateDueDateString(with date: Date?) {
         
         // TODO: Format date string
@@ -106,7 +105,14 @@ final class AddToDoItemViewModelImpl: AddToDoItemViewModel {
     
     private func updateFormValidation() {
         
-        // TODO: Validate form and update `isFormValid` property
+        switch name.value {
+        case let value? where value.isEmpty:
+            isFormValid.value = false
+        case nil:
+            isFormValid.value = false
+        default:
+            isFormValid.value = true
+        }
     }
     
     func selectPriority(at index: Int) {

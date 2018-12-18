@@ -7,11 +7,12 @@
 //
 
 import Foundation
+import Bond
 
-@objc protocol AddToDoItemViewModel: AnyObject {
+protocol AddToDoItemViewModel: AnyObject {
     
-    var name: String { get set }
-    var nameDidChange: ((AddToDoItemViewModel) -> Void)? { get set }
+    /// The name of the new to do item. Observable.
+    var name: Observable<String?> { get }
     
     var dueDateString: String? { get }
     var dueDateStringDidChange: ((AddToDoItemViewModel) -> Void)? { get set }
@@ -21,10 +22,14 @@ import Foundation
     var priorityStringDidChange: ((AddToDoItemViewModel) -> Void)? { get set }
     var orderedPriorityStrings: [String] { get }
     
-    var isFormValid: Bool { get }
-    var isFormValidDidChange: ((AddToDoItemViewModel) -> Void)? { get set }
+    /// Whether the data entered into the form can be used to create the to do item. Observable.
+    var isFormValid: Observable<Bool> { get }
     
+    /// Updates the selected priority of the new to do item.
+    ///
+    /// - Parameter index: The index of the selected priority in the `orderedPriorityStrings` property.
     func selectPriority(at index: Int)
     
+    /// Cancels the view.
     func cancel()
 }
