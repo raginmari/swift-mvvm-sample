@@ -14,6 +14,7 @@ enum Result<T> {
     case failure(Error)
     
     var value: T? {
+        
         if case let .success(value) = self {
             return value
         }

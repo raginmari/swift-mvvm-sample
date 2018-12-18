@@ -73,7 +73,7 @@ final class AddToDoItemViewController: UIViewController {
     @objc private func onDueDatePickerFinished(_ sender: Any) {
      
         dueDateTextField.endEditing(false)
-        // TODO: Pass the selected to the view model
+        // TODO: Pass the selected date to the view model
     }
     
     @objc private func onPriorityPickerFinished(_ sender: Any) {
@@ -86,17 +86,6 @@ final class AddToDoItemViewController: UIViewController {
     
     private func makeCancelBarButton(target: Any, action: Selector) -> UIBarButtonItem {
         
-        let button = UIBarButtonItem(barButtonSystemItem: .cancel, target: target, action: action)
-        
-        return button
-    }
-    
-}
-
-extension AddToDoItemViewController: UITextFieldDelegate {
-    
-    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
-        
-        return true
+        return UIBarButtonItem(barButtonSystemItem: .cancel, target: target, action: action)
     }
 }
