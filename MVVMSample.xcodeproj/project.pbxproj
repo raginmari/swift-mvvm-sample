@@ -135,7 +135,7 @@
 				BF4F78CF21C439B8000B10C2 /* Common */,
 				BF4F78B321C3DFFC000B10C2 /* Coordinator */,
 				BF4F78B021C3DE46000B10C2 /* Resources */,
-				BF5F930221C8015200B6F632 /* To Do Item */,
+				BF5F930221C8015200B6F632 /* To Do Item Model */,
 				BF4F78B121C3DFE0000B10C2 /* To Do List */,
 			);
 			path = MVVMSample;
@@ -267,7 +267,7 @@
 			path = "View Model";
 			sourceTree = "<group>";
 		};
-		BF5F930221C8015200B6F632 /* To Do Item */ = {
+		BF5F930221C8015200B6F632 /* To Do Item Model */ = {
 			isa = PBXGroup;
 			children = (
 				BF4F78E321C7EEA5000B10C2 /* DAO */,
@@ -275,7 +275,7 @@
 				BF4F78CB21C4388B000B10C2 /* ToDoItem.swift */,
 				BF4F78CD21C43899000B10C2 /* ToDoItemPriority.swift */,
 			);
-			path = "To Do Item";
+			path = "To Do Item Model";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
