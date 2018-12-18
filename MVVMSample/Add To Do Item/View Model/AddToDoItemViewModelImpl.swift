@@ -12,6 +12,7 @@ final class AddToDoItemViewModelImpl: AddToDoItemViewModel {
     
     weak var router: AddToDoItemRouter?
     
+    private let repository: ToDoItemRepository
     
     var name: String = "" {
         didSet {
@@ -81,8 +82,9 @@ final class AddToDoItemViewModelImpl: AddToDoItemViewModel {
         }
     }
     
-    init(router: AddToDoItemRouter) {
+    init(repository: ToDoItemRepository, router: AddToDoItemRouter) {
         
+        self.repository = repository
         self.router = router
     }
     

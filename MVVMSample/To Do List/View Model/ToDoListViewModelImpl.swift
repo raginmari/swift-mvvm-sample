@@ -10,7 +10,7 @@ import Foundation
 
 final class ToDoListViewModelImpl: ToDoListViewModel {
     
-    var repository: ToDoItemRepository
+    private let repository: ToDoItemRepository
     
     private(set) var toDoItems: [ToDoListItemViewModel] = [] {
         didSet {

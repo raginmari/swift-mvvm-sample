@@ -24,6 +24,7 @@ final class AddToDoItemFactory {
     
     static func makeAddToDoItemViewModel(router: AddToDoItemRouter) -> AddToDoItemViewModel {
         
-        return AddToDoItemViewModelImpl(router: router)
+        let repository = ToDoItemRepositoryFactory.makeRepository()
+        return AddToDoItemViewModelImpl(repository: repository, router: router)
     }
 }
