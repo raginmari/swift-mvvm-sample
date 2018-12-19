@@ -1,5 +1,5 @@
 //
-//  UserDefaultsToDoItemDAO.swift
+//  FileToDoItemDAO.swift
 //  MVVMSample
 //
 //  Created by Reimar Twelker on 17.12.18.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-final class UserDefaultsToDoItemDAO: ToDoItemDataAccess {
+final class FileToDoItemDAO: ToDoItemDataAccess {
     
     private let defaults = UserDefaults.standard
     
