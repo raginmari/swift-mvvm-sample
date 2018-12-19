@@ -14,12 +14,10 @@ protocol AddToDoItemViewModel: AnyObject {
     /// The name of the new to do item. Observable.
     var name: Observable<String> { get }
     
-    var dueDateString: String? { get }
-    var dueDateStringDidChange: ((AddToDoItemViewModel) -> Void)? { get set }
+    var dueDateString: Observable<String> { get }
     var minimumDueDate: Date { get }
     
-    var priorityString: String { get }
-    var priorityStringDidChange: ((AddToDoItemViewModel) -> Void)? { get set }
+    var priorityString: Observable<String> { get }
     var orderedPriorityStrings: [String] { get }
     
     /// Whether the data entered into the form can be used to create the to do item. Observable.

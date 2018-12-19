@@ -38,20 +38,18 @@ final class AddToDoItemViewController: UIViewController {
         
         loadViewIfNeeded()
         
-        // Bind view model to name text field
+        // Bind view model to name text field and vice versa
         viewModel.name.bind(to: nameTextField)
         nameTextField.reactive.text.map { $0 ?? "" }.bind(to: viewModel.name)
         
         // Bind view model to save button
         viewModel.isFormValid.bind(to: saveButton.reactive.isEnabled)
         
-        viewModel.dueDateStringDidChange = { [weak self] viewModel in
-            self?.dueDateTextField.text = viewModel.dueDateString
-        }
+        // Bind view model to due date text field
+        viewModel.dueDateString.bind(to: dueDateTextField)
         
-        viewModel.priorityStringDidChange = { [weak self ]viewModel in
-            self?.priorityTextField.text = viewModel.priorityString
-        }
+        // Bind view model to priority text field
+        viewModel.priorityString.bind(to: priorityTextField)
     }
     
     override func viewDidLoad() {
@@ -77,16 +75,12 @@ final class AddToDoItemViewController: UIViewController {
     
     private func setUpDueDateTextField() {
         
-        dueDateTextField.text = viewModel.dueDateString
-        
         let doneAction = #selector(onDueDatePickerFinished(_:))
         dueDateTextField.inputAccessoryView = WidgetFactory.makeToolbar(buttonTitle: Strings.done, target: self, action: doneAction)
         dueDateTextField.inputView = WidgetFactory.makeDateAndTimePicker(minimumDate: viewModel.minimumDueDate)
     }
     
     private func setUpPriorityTextField() {
-        
-        priorityTextField.text = viewModel.priorityString
         
         let doneAction = #selector(onPriorityPickerFinished(_:))
         priorityTextField.inputAccessoryView = WidgetFactory.makeToolbar(buttonTitle: Strings.done, target: self, action: doneAction)

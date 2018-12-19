@@ -17,7 +17,29 @@ final class AddToDoItemViewModelImpl: AddToDoItemViewModel {
     /// Provides access to the to do item model.
     private let repository: ToDoItemRepository
     
-    let name = Observable<String>("")
+    // MARK: Signals
+    
+    let name = Observable("")
+    
+    let dueDateString = Observable(NSLocalizedString("egal", comment: ""))
+    
+    let priorityString = Observable(NSLocalizedString("unwichtig", comment: ""))
+    
+    let isFormValid = Observable(false)
+    
+    // MARK: Readonly properties
+    
+    var minimumDueDate: Date {
+        
+        return Date()
+    }
+    
+    lazy var orderedPriorityStrings: [String] = {
+        
+        return orderedPriorities.map(localizedPriorityString)
+    }()
+    
+    // MARK: Private properties
     
     private var dueDate: Date? {
         didSet {
@@ -25,44 +47,14 @@ final class AddToDoItemViewModelImpl: AddToDoItemViewModel {
         }
     }
     
-    var dueDateString: String? {
-        didSet {
-            dueDateStringDidChange?(self)
-        }
-    }
-    
-    var dueDateStringDidChange: ((AddToDoItemViewModel) -> Void)?
-    
-    var minimumDueDate: Date {
-        
-        return Date()
-    }
-    
-    let isFormValid = Observable(false)
-    
-    private var priority: ToDoItemPriority = .none {
-        didSet {
-            updatePriorityString(with: priority)
-        }
-    }
-    
-    var priorityString: String = NSLocalizedString("unwichtig", comment: "") {
-        didSet {
-            priorityStringDidChange?(self)
-        }
-    }
-    
-    var priorityStringDidChange: ((AddToDoItemViewModel) -> Void)?
+    private let priority = Observable<ToDoItemPriority>(.none)
     
     private lazy var orderedPriorities: [ToDoItemPriority] = {
         
         return [ .none, .low, .medium, .high ]
     }()
     
-    lazy var orderedPriorityStrings: [String] = {
-        
-        return orderedPriorities.map(priorityString)
-    }()
+    // MARK: -
     
     init(repository: ToDoItemRepository, router: AddToDoItemRouter) {
         
@@ -77,9 +69,11 @@ final class AddToDoItemViewModelImpl: AddToDoItemViewModel {
         _ = name.observeNext { [weak self] value in
             self?.updateFormValidation()
         }
+        
+        priority.map(localizedPriorityString).bind(to: priorityString)
     }
     
-    private func priorityString(for priority: ToDoItemPriority) -> String {
+    private func localizedPriorityString(for priority: ToDoItemPriority) -> String {
         
         switch priority {
         case .none:
@@ -98,21 +92,9 @@ final class AddToDoItemViewModelImpl: AddToDoItemViewModel {
         // TODO: Format date string
     }
     
-    private func updatePriorityString(with priority: ToDoItemPriority) {
-        
-        priorityString = priorityString(for: priority)
-    }
-    
     private func updateFormValidation() {
         
-        switch name.value {
-        case let value where value.isEmpty:
-            isFormValid.value = false
-        case nil:
-            isFormValid.value = false
-        default:
-            isFormValid.value = true
-        }
+        isFormValid.value = !name.value.isEmpty
     }
     
     func selectPriority(at index: Int) {
@@ -122,7 +104,7 @@ final class AddToDoItemViewModelImpl: AddToDoItemViewModel {
             return
         }
         
-        priority = orderedPriorities[index]
+        priority.value = orderedPriorities[index]
     }
     
     func cancel() {
