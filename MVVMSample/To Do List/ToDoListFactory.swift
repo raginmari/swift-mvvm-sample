@@ -22,7 +22,7 @@ final class ToDoListFactory {
         return viewController
     }
     
-    static func makeToDoListViewModel(router: ToDoListRouter) -> ToDoListViewModel {
+    private static func makeToDoListViewModel(router: ToDoListRouter) -> ToDoListViewModel {
  
         let repository = ToDoItemRepositoryFactory.makeRepository()
         return ToDoListViewModelImpl(repository: repository, router: router)

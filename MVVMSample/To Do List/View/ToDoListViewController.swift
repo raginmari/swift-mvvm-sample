@@ -19,7 +19,7 @@ final class ToDoListViewController: UIViewController {
     
     var viewModel: ToDoListViewModel! {
         didSet {
-            viewModel?.toDoItemsDidChange = { [weak self] viewModel in
+            viewModel?.toDoItemsDidChange = { [weak self] _ in
                 self?.reloadToDoItems()
             }
         }
