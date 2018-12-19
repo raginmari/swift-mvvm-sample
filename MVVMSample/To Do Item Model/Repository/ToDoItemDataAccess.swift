@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol ToDoItemDataAccess {
+protocol ToDoItemDataAccess: AnyObject {
     
     func create(_ toDoItem: ToDoItem, completion: @escaping (Error?) -> Void)
     
@@ -18,5 +18,5 @@ protocol ToDoItemDataAccess {
     
     func update(_ toDoItem: ToDoItem, completion: @escaping (Error?) -> Void)
     
-    func delete(_ toDoItem: ToDoItem, completion: @escaping (Error?) -> Void)
+    func delete(withID id: String, completion: @escaping (Error?) -> Void)
 }

@@ -12,6 +12,9 @@ final class ToDoItemRepositoryFactory {
     
     static func makeRepository() -> ToDoItemRepository {
         
-        return ToDoItemRepositoryImpl()
+        let dao = InMemoryToDoItemDAO()
+        let repository = ToDoItemRepositoryImpl(dao: dao)
+        
+        return repository
     }
 }

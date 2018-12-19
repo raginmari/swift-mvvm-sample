@@ -23,6 +23,12 @@ final class iPhoneAppCoordinator: Coordinator {
     
     func start() {
         
+        // TODO: Remove when in-memory DAO is replaced
+        let repository = ToDoItemRepositoryFactory.makeRepository()
+        repository.createOrUpdateToDoItem(ToDoItem(uuid: UUID().uuidString, name: "Item 1")) { _ in }
+        repository.createOrUpdateToDoItem(ToDoItem(uuid: UUID().uuidString, name: "Item 2")) { _ in }
+        repository.createOrUpdateToDoItem(ToDoItem(uuid: UUID().uuidString, name: "Item 3")) { _ in }
+        
         let viewController = ToDoListFactory.makeToDoList(router: self)
         let navigationController = UINavigationController(rootViewController: viewController)
         window.rootViewController = navigationController

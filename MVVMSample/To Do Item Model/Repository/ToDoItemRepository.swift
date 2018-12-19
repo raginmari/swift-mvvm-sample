@@ -10,11 +10,11 @@ import Foundation
 
 protocol ToDoItemRepository {
     
-    func createOrUpdateToDoItem(_ toDoItem: ToDoItem, handler: @escaping (Error?) -> Void)
+    func createOrUpdateToDoItem(_ toDoItem: ToDoItem, completion: @escaping (Error?) -> Void)
     
-    func deleteToDoItem(_ toDoItem: ToDoItem, handler: @escaping (Error?) -> Void)
+    func deleteToDoItem(_ toDoItem: ToDoItem, completion: @escaping (Error?) -> Void)
     
-    func allToDoItems(handler: @escaping (Result<[ToDoItem]>) -> Void)
+    func allToDoItems(completion: @escaping (Result<[ToDoItem]>) -> Void)
     
-    func toDoItem(withID uuid: String, handler: @escaping (Result<ToDoItem?>) -> Void)
+    func toDoItem(withID id: String, completion: @escaping (Result<ToDoItem?>) -> Void)
 }
