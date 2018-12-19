@@ -12,7 +12,7 @@ import Bond
 protocol AddToDoItemViewModel: AnyObject {
     
     /// The name of the new to do item. Observable.
-    var name: Observable<String?> { get }
+    var name: Observable<String> { get }
     
     var dueDateString: String? { get }
     var dueDateStringDidChange: ((AddToDoItemViewModel) -> Void)? { get set }

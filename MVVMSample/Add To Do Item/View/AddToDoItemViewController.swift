@@ -20,6 +20,7 @@ final class AddToDoItemViewController: UIViewController {
     @IBOutlet private weak var saveButton: UIButton! {
         didSet {
             saveButton?.setBackgroundImage(UIImage.image(withColor: UIColor(hex: 0x3498db)), for: .normal)
+            saveButton?.setBackgroundImage(UIImage.image(withColor: UIColor(hex: 0x8cbbdb)), for: .disabled)
         }
     }
     
@@ -38,7 +39,8 @@ final class AddToDoItemViewController: UIViewController {
         loadViewIfNeeded()
         
         // Bind view model to name text field
-        viewModel.name.bidirectionalBind(to: nameTextField.reactive.text)
+        viewModel.name.bind(to: nameTextField)
+        nameTextField.reactive.text.map { $0 ?? "" }.bind(to: viewModel.name)
         
         // Bind view model to save button
         viewModel.isFormValid.bind(to: saveButton.reactive.isEnabled)

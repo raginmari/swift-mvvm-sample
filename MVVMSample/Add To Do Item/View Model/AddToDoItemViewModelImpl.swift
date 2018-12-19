@@ -17,7 +17,7 @@ final class AddToDoItemViewModelImpl: AddToDoItemViewModel {
     /// Provides access to the to do item model.
     private let repository: ToDoItemRepository
     
-    let name = Observable<String?>("")
+    let name = Observable<String>("")
     
     private var dueDate: Date? {
         didSet {
@@ -106,7 +106,7 @@ final class AddToDoItemViewModelImpl: AddToDoItemViewModel {
     private func updateFormValidation() {
         
         switch name.value {
-        case let value? where value.isEmpty:
+        case let value where value.isEmpty:
             isFormValid.value = false
         case nil:
             isFormValid.value = false
