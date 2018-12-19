@@ -67,4 +67,3 @@ fastlane/screenshots/**/*.png
 fastlane/test_output
 IDEWorkspaceChecks.plist
 .DS_Store
-/MVVMSample.xcodeproj/xcuserdata/reimartwelker.xcuserdatad/xcdebugger/Breakpoints_v2.xcbkptlist
