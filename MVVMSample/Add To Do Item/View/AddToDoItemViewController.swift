@@ -73,6 +73,11 @@ final class AddToDoItemViewController: UIViewController {
         navigationItem.rightBarButtonItem = button
     }
     
+    private func makeCancelBarButton() -> UIBarButtonItem {
+        
+        return UIBarButtonItem(barButtonSystemItem: .cancel, target: nil, action: nil)
+    }
+    
     private func setUpDueDateTextField() {
         
         let doneAction = #selector(onDueDatePickerFinished(_:))
@@ -99,10 +104,5 @@ final class AddToDoItemViewController: UIViewController {
         
         let selectedIndex = (priorityTextField.inputView as? UIPickerView)?.selectedRow() ?? 0
         viewModel.selectPriority(at: selectedIndex)
-    }
-    
-    private func makeCancelBarButton() -> UIBarButtonItem {
-        
-        return UIBarButtonItem(barButtonSystemItem: .cancel, target: nil, action: nil)
     }
 }
