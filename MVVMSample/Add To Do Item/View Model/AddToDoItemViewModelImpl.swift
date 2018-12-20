@@ -66,10 +66,10 @@ final class AddToDoItemViewModelImpl: AddToDoItemViewModel {
     
     private func setUpBindings() {
         
-        _ = name.observeNext { [weak self] value in
-            self?.updateFormValidation()
-        }
+        // If the name changes, update the form validity
+        name.map { !$0.isEmpty }.bind(to: isFormValid)
         
+        // If the priority changes, update its string representation
         priority.map(localizedPriorityString).bind(to: priorityString)
     }
     
@@ -90,11 +90,6 @@ final class AddToDoItemViewModelImpl: AddToDoItemViewModel {
     private func updateDueDateString(with date: Date?) {
         
         // TODO: Format date string
-    }
-    
-    private func updateFormValidation() {
-        
-        isFormValid.value = !name.value.isEmpty
     }
     
     func selectPriority(at index: Int) {
