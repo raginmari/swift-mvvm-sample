@@ -7,12 +7,12 @@
 //
 
 import Foundation
+import Bond
 
-@objc protocol ToDoListViewModel {
+protocol ToDoListViewModel {
 
-    var toDoItems: [ToDoListItemViewModel] { get }
-    var toDoItemsDidChange: ((ToDoListViewModel) -> Void)? { get set }
-
+    var toDoItems: MutableObservableArray<ToDoListItemViewModel> { get }
+    
     func prepareView()
 
     func addToDoItem()

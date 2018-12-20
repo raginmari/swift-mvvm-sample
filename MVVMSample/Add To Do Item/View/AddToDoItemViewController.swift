@@ -65,9 +65,9 @@ final class AddToDoItemViewController: UIViewController {
     private func installCancelBarButton() {
         
         let button = makeCancelBarButton()
-        _ = button.reactive.tap.observeNext { [weak self] in
+        button.reactive.tap.observeNext { [weak self] in
             self?.viewModel.cancel()
-        }
+        }.dispose(in: bag)
         
         navigationItem.rightBarButtonItem = button
     }

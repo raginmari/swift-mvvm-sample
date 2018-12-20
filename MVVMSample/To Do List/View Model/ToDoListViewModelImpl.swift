@@ -7,18 +7,13 @@
 //
 
 import Foundation
+import Bond
 
 final class ToDoListViewModelImpl: ToDoListViewModel {
     
     private let repository: ToDoItemRepository
     
-    private(set) var toDoItems: [ToDoListItemViewModel] = [] {
-        didSet {
-            toDoItemsDidChange?(self)
-        }
-    }
-    
-    var toDoItemsDidChange: ((ToDoListViewModel) -> Void)?
+    let toDoItems = MutableObservableArray<ToDoListItemViewModel>()
     
     weak var router: ToDoListRouter?
     
@@ -43,7 +38,7 @@ final class ToDoListViewModelImpl: ToDoListViewModel {
     
     private func processToDoItems(_ toDoItems: [ToDoItem]) {
         
-        self.toDoItems = toDoItems.map(makeToDoListItemViewModel)
+        self.toDoItems.replace(with: toDoItems.map(makeToDoListItemViewModel))
     }
     
     private func makeToDoListItemViewModel(toDoItem: ToDoItem) -> ToDoListItemViewModel {

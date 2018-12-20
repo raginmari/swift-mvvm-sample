@@ -19,10 +19,17 @@ final class ToDoListViewController: UIViewController {
     
     var viewModel: ToDoListViewModel! {
         didSet {
-            viewModel?.toDoItemsDidChange = { [weak self] _ in
-                self?.reloadToDoItems()
-            }
+            setUpBindings()
         }
+    }
+    
+    private func setUpBindings() {
+        
+        loadViewIfNeeded()
+        
+        viewModel.toDoItems.observeNext { [weak self] _ in
+            self?.tableView.reloadData()
+        }.dispose(in: bag)
     }
     
     override func viewDidLoad() {
@@ -37,16 +44,17 @@ final class ToDoListViewController: UIViewController {
     
     private func installAddToDoItemBarButton() {
         
-        let button = makeAddToDoItemBarButton(target: viewModel, action: #selector(ToDoListViewModel.addToDoItem))
+        let button = makeAddToDoItemBarButton()
+        _ = button.reactive.tap.observeNext { [weak self] in
+            self?.viewModel.addToDoItem()
+        }
+        
         navigationItem.rightBarButtonItem = button
     }
     
-    private func makeAddToDoItemBarButton(target: Any, action: Selector) -> UIBarButtonItem {
+    private func makeAddToDoItemBarButton() -> UIBarButtonItem {
         
-        let button = UIBarButtonItem(barButtonSystemItem: .add, target: target, action: action)
-        button.tintColor = view.backgroundColor
-        
-        return button
+        return UIBarButtonItem(barButtonSystemItem: .add, target: nil, action: nil)
     }
     
     private func reloadToDoItems() {
