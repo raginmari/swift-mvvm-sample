@@ -94,7 +94,7 @@ final class AddToDoItemViewModelImpl: AddToDoItemViewModel {
     
     func selectPriority(at index: Int) {
         
-        guard case (0..<orderedPriorities.count) = index else {
+        guard case 0..<orderedPriorities.count = index else {
             assertionFailure("Index out of bounds")
             return
         }
