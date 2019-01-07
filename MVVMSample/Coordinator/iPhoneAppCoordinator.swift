@@ -14,7 +14,8 @@ final class iPhoneAppCoordinator: Coordinator {
     
     private weak var rootViewController: UIViewController?
     
-    private weak var currentAddToDoItemViewController: UIViewController?
+    /// Reference to the current child coordinator or `nil` if the user is not currently adding a todo item.
+    private var addToDoItemCoordinator: Coordinator?
     
     init(window: UIWindow) {
         
@@ -42,23 +43,12 @@ extension iPhoneAppCoordinator: ToDoListRouter {
     
     func addToDoItem() {
         
-        let viewController = AddToDoItemFactory.makeAddToDoItemView(router: self)
-        let navigationController = UINavigationController(rootViewController: viewController)
-        rootViewController?.present(navigationController, animated: true)
+        // Start child coordinator
+        guard let rootViewController = rootViewController else { return }
+        addToDoItemCoordinator = AddToDoItemCoordinatorFactory.makeAddToDoItemCoordinator(rootViewController: rootViewController) { [weak self] in
+            self?.addToDoItemCoordinator = nil
+        }
         
-        currentAddToDoItemViewController = navigationController
-    }
-}
-
-extension iPhoneAppCoordinator: AddToDoItemRouter {
-    
-    func cancel() {
-        
-        currentAddToDoItemViewController?.dismiss(animated: true)
-    }
-    
-    func finish() {
-        
-        currentAddToDoItemViewController?.dismiss(animated: true)
+        addToDoItemCoordinator?.start()
     }
 }

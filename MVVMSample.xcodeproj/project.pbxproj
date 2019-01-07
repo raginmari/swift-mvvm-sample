@@ -39,6 +39,8 @@
 		BF5F930421C836E700B6F632 /* WidgetFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5F930321C836E700B6F632 /* WidgetFactory.swift */; };
 		BF5F930621C8393700B6F632 /* SimplePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5F930521C8393700B6F632 /* SimplePickerView.swift */; };
 		BF5F933421CA788900B6F632 /* ToDoItemDataAccessError.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5F933321CA788900B6F632 /* ToDoItemDataAccessError.swift */; };
+		BFA9534A21E3915400EB8C16 /* AddToDoItemCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA9534921E3915400EB8C16 /* AddToDoItemCoordinator.swift */; };
+		BFA9534D21E393E300EB8C16 /* AddToDoItemCoordinatorFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA9534C21E393E300EB8C16 /* AddToDoItemCoordinatorFactory.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -88,6 +90,8 @@
 		BF5F930321C836E700B6F632 /* WidgetFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetFactory.swift; sourceTree = "<group>"; };
 		BF5F930521C8393700B6F632 /* SimplePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimplePickerView.swift; sourceTree = "<group>"; };
 		BF5F933321CA788900B6F632 /* ToDoItemDataAccessError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoItemDataAccessError.swift; sourceTree = "<group>"; };
+		BFA9534921E3915400EB8C16 /* AddToDoItemCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddToDoItemCoordinator.swift; sourceTree = "<group>"; };
+		BFA9534C21E393E300EB8C16 /* AddToDoItemCoordinatorFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddToDoItemCoordinatorFactory.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -242,6 +246,7 @@
 			children = (
 				BF5F92FF21C7F86F00B6F632 /* AddToDoItemFactory.swift */,
 				BF4F78EB21C7F430000B10C2 /* AddToDoItemRouter.swift */,
+				BFA9534B21E3915900EB8C16 /* Coordinator */,
 				BF4F78E921C7F3FB000B10C2 /* View */,
 				BF4F78EA21C7F400000B10C2 /* View Model */,
 			);
@@ -276,6 +281,15 @@
 				BF4F78CD21C43899000B10C2 /* ToDoItemPriority.swift */,
 			);
 			path = "To Do Item Model";
+			sourceTree = "<group>";
+		};
+		BFA9534B21E3915900EB8C16 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				BFA9534921E3915400EB8C16 /* AddToDoItemCoordinator.swift */,
+				BFA9534C21E393E300EB8C16 /* AddToDoItemCoordinatorFactory.swift */,
+			);
+			path = Coordinator;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -384,6 +398,7 @@
 				BF4F78D121C439BE000B10C2 /* Result.swift in Sources */,
 				BF4F78E521C7EEB7000B10C2 /* ToDoItemDataAccess.swift in Sources */,
 				BF4F78BF21C3E0DE000B10C2 /* ToDoListViewModel.swift in Sources */,
+				BFA9534D21E393E300EB8C16 /* AddToDoItemCoordinatorFactory.swift in Sources */,
 				BF4F78C521C3E17C000B10C2 /* ToDoListFactory.swift in Sources */,
 				BF4F78B921C3E070000B10C2 /* Coordinator.swift in Sources */,
 				BF5F930421C836E700B6F632 /* WidgetFactory.swift in Sources */,
@@ -401,6 +416,7 @@
 				BF4F78D321C43F7E000B10C2 /* ToDoItemRepositoryImpl.swift in Sources */,
 				BF5F930021C7F86F00B6F632 /* AddToDoItemFactory.swift in Sources */,
 				BF4F78BB21C3E0B9000B10C2 /* ToDoListViewController.swift in Sources */,
+				BFA9534A21E3915400EB8C16 /* AddToDoItemCoordinator.swift in Sources */,
 				BF5F933421CA788900B6F632 /* ToDoItemDataAccessError.swift in Sources */,
 				BF4F78E721C7EF7E000B10C2 /* InMemoryToDoItemDAO.swift in Sources */,
 				BF4F78CA21C4387C000B10C2 /* ToDoItemRepository.swift in Sources */,
