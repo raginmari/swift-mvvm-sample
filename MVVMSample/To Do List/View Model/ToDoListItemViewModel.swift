@@ -8,7 +8,7 @@
 
 import Foundation
 
-class ToDoListItemViewModel: NSObject {
+struct ToDoListItemViewModel {
     
     let uuid: String
     
