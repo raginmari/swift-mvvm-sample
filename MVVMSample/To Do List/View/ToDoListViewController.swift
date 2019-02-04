@@ -19,17 +19,25 @@ final class ToDoListViewController: UIViewController {
     
     var viewModel: ToDoListViewModel! {
         didSet {
-            setUpBindings()
+            setUpBindings(with: viewModel)
         }
     }
     
-    private func setUpBindings() {
+    private func setUpBindings(with viewModel: ToDoListViewModel) {
         
         loadViewIfNeeded()
         
-        viewModel.toDoItems.observeNext { [weak self] _ in
-            self?.tableView.reloadData()
-        }.dispose(in: bag)
+        viewModel.toDoItems.bind(to: tableView) { viewModels, indexPath, tableView in
+            let cell = tableView.dequeueReusableCell(withIdentifier: Constants.cellReuseIdentifier, for: indexPath)
+            guard let itemCell = cell as? ToDoListItemCell else {
+                fatalError("Failed to dequeue cell")
+            }
+            
+            let itemViewModel = viewModels[indexPath.row]
+            itemCell.setUp(with: itemViewModel)
+            
+            return itemCell
+        }
     }
     
     override func viewDidLoad() {
@@ -38,16 +46,14 @@ final class ToDoListViewController: UIViewController {
         
         title = NSLocalizedString("Aufgaben", comment: "")
         installAddToDoItemBarButton()
-        
-        viewModel.prepareView()
     }
     
     private func installAddToDoItemBarButton() {
         
         let button = makeAddToDoItemBarButton()
-        _ = button.reactive.tap.observeNext { [weak self] in
+        button.reactive.tap.observeNext { [weak self] in
             self?.viewModel.addToDoItem()
-        }
+        }.dispose(in: bag)
         
         navigationItem.rightBarButtonItem = button
     }
@@ -55,31 +61,5 @@ final class ToDoListViewController: UIViewController {
     private func makeAddToDoItemBarButton() -> UIBarButtonItem {
         
         return UIBarButtonItem(barButtonSystemItem: .add, target: nil, action: nil)
-    }
-    
-    private func reloadToDoItems() {
-        
-        tableView.reloadData()
-    }
-}
-
-extension ToDoListViewController: UITableViewDataSource {
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-        return viewModel.toDoItems.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    
-        let cell = tableView.dequeueReusableCell(withIdentifier: Constants.cellReuseIdentifier, for: indexPath)
-        guard let itemCell = cell as? ToDoListItemCell else {
-            fatalError("Failed to dequeue cell")
-        }
-        
-        let itemViewModel = viewModel.toDoItems[indexPath.row]
-        itemCell.setUp(with: itemViewModel)
-        
-        return itemCell
     }
 }

@@ -21,9 +21,11 @@ final class ToDoListViewModelImpl: ToDoListViewModel {
         
         self.repository = repository
         self.router = router
+        
+        loadData()
     }
     
-    func prepareView() {
+    private func loadData() {
         
         repository.allToDoItems { [weak self] result in
             switch result {

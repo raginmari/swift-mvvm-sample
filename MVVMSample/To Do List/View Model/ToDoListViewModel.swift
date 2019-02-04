@@ -12,8 +12,6 @@ import Bond
 protocol ToDoListViewModel {
 
     var toDoItems: MutableObservableArray<ToDoListItemViewModel> { get }
-    
-    func prepareView()
 
     func addToDoItem()
 }
